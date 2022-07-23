@@ -1,0 +1,9 @@
+[default]
+TITLE="Bolg Flask"
+
+EXTENSIONS = [
+    "app.blueprints.web",
+    "app.blueprints.api"
+]
+
+[production]
