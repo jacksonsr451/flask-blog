@@ -1,15 +1,15 @@
 from flask import Flask
 
-from app.ext import config
+from app.ext import configuration
 
 
-def minimal_app() -> Flask:
+def minimal_app(**config) -> Flask:
     app = Flask(__name__)
-    config.init_app(app=app)
+    configuration.init_app(app=app, **config)
     return app
+''
 
-
-def create_app() -> Flask:
-    app = minimal_app()
-    config.load_extensions(app=app)
+def create_app(**config) -> Flask:
+    app = minimal_app(**config)
+    app.config.load_extensions()
     return app

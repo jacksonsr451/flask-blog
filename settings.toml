@@ -1,11 +1,14 @@
 [default]
 TITLE="Bolg Flask"
 
-EXTENSIONS = [
-    "app.ext.flask-sql-alchemy",
+SQLALCHEMY_DATABASE_URI="sqlite:///db.sqlite"
 
-    "app.blueprints.web",
-    "app.blueprints.api"
+
+EXTENSIONS = [
+    "app.ext.flask_sql_alchemy:init_app",
+
+    "app.blueprints.web:init_app",
+    "app.blueprints.api:init_app"
 ]
 
 [production]
