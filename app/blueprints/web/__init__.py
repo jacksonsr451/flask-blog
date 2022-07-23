@@ -1,6 +1,6 @@
-from app.blueprints.web.home_controller import HomeController
+from app.blueprints.web import home_controller
 
 
 def init_app(app):
-    HomeController(app=app)
+    home_controller.init_controller(app=app)
     
