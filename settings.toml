@@ -2,6 +2,8 @@
 TITLE="Bolg Flask"
 
 EXTENSIONS = [
+    "app.ext.flask-sql-alchemy",
+
     "app.blueprints.web",
     "app.blueprints.api"
 ]
