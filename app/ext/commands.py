@@ -1,3 +1,4 @@
+import os
 import click
 
 from app.core.create_superuser import CreateSuperuser
@@ -8,6 +9,9 @@ from app.core.init_roles import InitRoles
 def init_commands(app):
     @app.cli.command("app-install")
     def app_install():
+        os.system("flask db init")
+        os.system("flask db migrate")
+        os.system("flask db upgrade")
         InitRoles().run()
     
     
@@ -16,7 +20,7 @@ def init_commands(app):
         print("Create superuser command")
         print("Entry with values to create")
         username = input("Username: ")
-        email = input("Email: ")
+        email = input("E-mail: ")
         password = input("Password: ")
         try:
             CreateSuperuser(username=username, email=email, password=password).run()
