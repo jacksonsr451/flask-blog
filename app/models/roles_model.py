@@ -18,8 +18,8 @@ class RolesModel(ModelMyxin, db.Model):
     @staticmethod
     def create(id = None, role: str = ""):
         if id is not None:
-            new_user = RolesModel(id, role)
+            role = RolesModel(id, role)
         else:
-            new_user = RolesModel(role)
-        db.session.add(new_user)
+            role = RolesModel(role)
+        db.session.add(role)
         db.session.commit()

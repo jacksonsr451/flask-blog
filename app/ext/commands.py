@@ -18,7 +18,10 @@ def init_commands(app):
         username = input("Username: ")
         email = input("Email: ")
         password = input("Password: ")
-        CreateSuperuser(username=username, email=email, password=password).run()
+        try:
+            CreateSuperuser(username=username, email=email, password=password).run()
+        except Exception as error:
+            print(error)
         
     
     @app.cli.command("create-superuser:args")
@@ -27,8 +30,10 @@ def init_commands(app):
     @click.argument("password")
     def create_superuser_args(username, email, password):
         print("Create superuser command")
-        print("{} {} {}".format(username, email, password))
-        
+        try:
+            CreateSuperuser(username=username, email=email, password=password).run()
+        except Exception as error:
+            print(error)
         
     
     app.cli.add_command(app_install)

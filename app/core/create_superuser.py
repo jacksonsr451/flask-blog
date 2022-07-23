@@ -1,4 +1,6 @@
-from app.models.roles_model import RolesModel
+from app.models.users_model import UsersModel
+from app.models.users_roles_model import UsersRolesModel
+from app.ext.flask_sql_alchemy import db
 
 
 class CreateSuperuser:
@@ -6,11 +8,16 @@ class CreateSuperuser:
         self.username = username
         self.email = email
         self.password = password
-        self.role = RolesModel
-        
+        self.user_role = UsersRolesModel
+        self.user = UsersModel
     
     
     def run(self):
-        self.role.create(id=1, role="superuser")    
-    
+        try:
+            self.user.create(username=self.username, email=self.email, password=self.password)
+            user = self.user.find_by_username(username=self.username)
+            self.user_role.create(user.id, 1)
+        except Exception as error:
+            db.session.rollback()
+            print(error)
         
