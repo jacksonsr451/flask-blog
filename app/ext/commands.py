@@ -20,7 +20,7 @@ def init_commands(app):
         print("Create superuser command")
         print("Entry with values to create")
         username = input("Username: ")
-        email = input("Email: ")
+        email = input("E-mail: ")
         password = input("Password: ")
         try:
             CreateSuperuser(username=username, email=email, password=password).run()
