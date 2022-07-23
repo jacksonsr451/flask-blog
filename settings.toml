@@ -8,6 +8,7 @@ SQLALCHEMY_TRACK_MODIFICATIONS = false
 EXTENSIONS = [
     "app.ext.flask_sql_alchemy:init_app",
     "app.ext.flask_migration:init_app",
+    "app.ext.commands:init_commands",
 
     "app.blueprints.web:init_app",
     "app.blueprints.api:init_app"
