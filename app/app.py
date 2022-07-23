@@ -7,7 +7,7 @@ def minimal_app(**config) -> Flask:
     app = Flask(__name__)
     configuration.init_app(app=app, **config)
     return app
-''
+
 
 def create_app(**config) -> Flask:
     app = minimal_app(**config)
