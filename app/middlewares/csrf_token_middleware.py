@@ -7,9 +7,9 @@ def csrf_token_middleware(func):
     @wraps(func)
     def decorated_function(*args, **kwargs):
         
-        role = request.headers["csrf_token"]
+        role = request.data
         
-        if role == "123456":
+        if role["csrf_token"] == "123456":
             return func(*args, **kwargs)
         
         return Response('Authorization failed', mimetype='text/plain', status=404)
