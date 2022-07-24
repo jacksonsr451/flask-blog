@@ -4,6 +4,9 @@ TITLE="Bolg Flask"
 SQLALCHEMY_DATABASE_URI="sqlite:///db.sqlite"
 SQLALCHEMY_TRACK_MODIFICATIONS = false
 
+SECRET_KEY="secret"
+WTF_CSRF_SECRET_KEY="secret"
+
 
 EXTENSIONS = [
     "app.ext.flask_sql_alchemy:init_app",

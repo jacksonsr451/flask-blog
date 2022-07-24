@@ -1,0 +1,13 @@
+<form action="/auth/login/validate" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+    <div class="form_input">
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username">
+    </div>
+    <div class="form_input">
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password">
+    </div>
+
+    <button type="submit">LOGIN</button>
+</form>
