@@ -55,6 +55,7 @@ body {
 	line-height: 1;
     color: var(--color-blak);
     background-color: var(--color-primary);
+    font-size: 16px;
 }
 ol, ul {
 	list-style: none;
@@ -90,8 +91,8 @@ table {
 
 .content > .login_form > .items {
     display: flex;
-    width: 35rem;
-    height: 15rem;
+    width: 16.875rem;
+    height: 18.75rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -103,13 +104,14 @@ table {
 }
 
 .content > .login_form > .items > h1 {
-    font-size: 2.3rem;
+    font-size: 1.9rem;
     margin-bottom: .5rem;
 }
 
 .content > .login_form > .items > p {
-    font-size: 1.4rem;
+    font-size: 1rem;
     margin-bottom: .5rem;
+    text-align: center;
 }
 
 .content > .login_form > .items > h1,
@@ -126,14 +128,15 @@ table {
 .content > .login_form > .items > .input_form > .background_label,
 .content > .login_form > .items > .input_form > .background_input {
     display: flex;
-    height: 1.7rem;
+    height: 1.5rem;
     background-color: var(--color-white);
     margin: .5rem 0;
 
+    font-size: .6rem;
 }
 
 .content > .login_form > .items > .input_form > .background_label {
-    width: 6.8rem;
+    width: 4rem;
     align-items: center;
     justify-content: end;
     border-radius: .8rem 0 0 .8rem;
@@ -145,13 +148,14 @@ table {
 }
 
 .content > .login_form > .items > .input_form > .background_input {
-    width: 13.8rem;
+    width: 11.5rem;
     align-items: center;
     justify-content: start;
     border-radius: 0 .8rem .8rem 0;
 }
 
 .content > .login_form > .items > .input_form > .background_input input {
+    width: 10rem;
     margin-left: .5rem;
 }
 
@@ -166,4 +170,64 @@ table {
 
 .content > .login_form > .items > button:hover {
     cursor: pointer;
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .content > .login_form > .items {
+        width: 28.125rem;
+        height: 16.25rem;
+    }
+    
+    .content > .login_form > .items > .input_form > .background_label,
+    .content > .login_form > .items > .input_form > .background_input {
+        height: 1.7rem;
+
+        font-size: .9rem;
+    }
+    
+    .content > .login_form > .items > .input_form > .background_label {
+        width: 6.8rem;
+    }
+    
+    .content > .login_form > .items > .input_form > .background_input {
+        width: 16.8rem;
+    }
+
+
+    .content > .login_form > .items > .input_form > .background_input input {
+        width: 13rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .content > .login_form > .items {
+        width: 35rem;
+        height: 17rem;
+    }
+    
+    .content > .login_form > .items > h1 {
+        font-size: 2.5rem;
+    }
+    
+    .content > .login_form > .items > p {
+        font-size: 1.6rem;
+    }
+    
+    .content > .login_form > .items > .input_form > .background_label,
+    .content > .login_form > .items > .input_form > .background_input {
+        font-size: 1.2rem;
+    }
+    
+    .content > .login_form > .items > .input_form > .background_label {
+        width: 6.8rem;
+    }
+    
+    .content > .login_form > .items > .input_form > .background_input {
+        width: 16.8rem;
+    }
+
+
+    .content > .login_form > .items > .input_form > .background_input input {
+        width: 13rem;
+    }
 }
