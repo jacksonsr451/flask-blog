@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+    <title>Registrar-se</title>
+{% endblock %}
+
+{% block content %}
+    <form class="register_form" action="/auth/register/validate" method="post">
+        <div class="items">
+            <h1>Registrar-se</h1>
+            <p>Faça seu cadastro aqui!</p>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+            <div class="input_form">
+                <div class="background_label">
+                    <label for="username">Username: </label>
+                </div>
+                <div class="background_input">
+                    <input type="text" name="username" id="username">
+                </div>
+            </div>
+            <div class="input_form">
+                <div class="background_label">
+                    <label for="email">E-mail: </label>
+                </div>
+                <div class="background_input">
+                    <input type="text" name="email" id="email">
+                </div>
+            </div>
+            <div class="input_form">
+                <div class="background_label">
+                    <label for="password">Password: </label>
+                </div>
+                <div class="background_input">
+                    <input type="password" name="password" id="password">
+                </div>
+            </div>
+            <button type="submit">LOGIN</button>
+        </div>
+    </form>
+{% endblock  %}
