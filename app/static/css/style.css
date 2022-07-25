@@ -1,3 +1,22 @@
+:root {
+    --color-primary: #9F63FF;
+    --color-secondary: #F357FF;
+    --color-tertiary: #B34FE8;
+    --color-fourth: #604FE8;
+    --color-fifth: #5771FF;
+
+    --color-primary-dark: #503280;
+    --color-secondary-dark: #281940;
+    --color-tertiary-dark: #8F5AE6;
+
+    --color-primary-light: #FF9E7D;
+    --color-secodary-light: #FFF84A;
+    --color-tertiary-light: #57FFD9;
+
+    --color-blak: #111111;
+    --color-white: #fffafa;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
