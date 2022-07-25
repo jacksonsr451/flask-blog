@@ -6,16 +6,28 @@
 
 {% block content %}
     <form class="login_form" action="/auth/login/validate" method="post">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-        <div class="inout_form">
-            <label for="username">Username: </label>
-            <input type="text" name="username" id="username">
-        </div>
-        <div class="inout_form">
-            <label for="password">Password: </label>
-            <input type="password" name="password" id="password">
-        </div>
+        <div class="items">
+            <h1>LOGIN</h1>
+            <p>Efetue o login para continuar!</p>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+            <div class="input_form">
+                <div class="background_label">
+                    <label for="username">Username: </label>
+                </div>
+                <div class="background_input">
+                    <input type="text" name="username" id="username">
+                </div>
+            </div>
+            <div class="input_form">
+                <div class="background_label">
+                    <label for="password">Password: </label>
+                </div>
+                <div class="background_input">
+                    <input type="password" name="password" id="password">
+                </div>
+            </div>
 
-        <button type="submit">LOGIN</button>
+            <button type="submit">LOGIN</button>
+        </div>
     </form>
 {% endblock  %}
