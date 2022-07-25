@@ -9,6 +9,17 @@ def init_controller(app) -> None:
     def login():
         return render_template("auth/login.html")
     
+    
+    @app.route('/auth/register', methods=["GET"])
+    def register():
+        return render_template("auth/register.html")
+    
+    
+    @app.route('/auth/logout', methods=["GET"])
+    def logout():
+        pass
+    
+    
     @csrf_token_middleware
     @app.route("/auth/login/validate", methods=["POST"])
     def validate_login():
