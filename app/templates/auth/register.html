@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
 
 {% block head %} 
-    <title>Login</title>
+    <title>Registrar-se</title>
 {% endblock %}
 
 {% block content %}
-    <form class="login_form" action="/auth/login/validate" method="post">
+    <form class="register_form" action="/auth/register/validate" method="post">
         <div class="items">
-            <h1>LOGIN</h1>
-            <p>Efetue o login para continuar!</p>
+            <div class="top">
+                <a href="/auth/login">
+                    <img src="{{ url_for('static', filename='images/left_arrow.svg') }}" alt="" srcset="">
+                </a>
+            </div>
+            <h1>Registrar-se</h1>
+            <p>Faça seu cadastro aqui!</p>
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
             <div class="input_form">
                 <div class="background_label">
@@ -20,18 +25,21 @@
             </div>
             <div class="input_form">
                 <div class="background_label">
+                    <label for="email">E-mail: </label>
+                </div>
+                <div class="background_input">
+                    <input type="text" name="email" id="email">
+                </div>
+            </div>
+            <div class="input_form">
+                <div class="background_label">
                     <label for="password">Password: </label>
                 </div>
                 <div class="background_input">
                     <input type="password" name="password" id="password">
                 </div>
             </div>
-
-            <button type="submit">LOGIN</button>
-
-            <div class="register">
-                <a href="/auth/register">Clique aqui, caso ainda não tenha uma conta!</a>
-            </div>
+            <button type="submit">ENVIAR</button>
         </div>
     </form>
 {% endblock  %}
