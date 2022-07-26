@@ -1,6 +1,7 @@
 from typing import Any
 from app.ext.flask_sql_alchemy import db
 from app.models.model_mixin import ModelMyxin 
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 
@@ -20,7 +21,7 @@ class UsersModel(ModelMyxin, db.Model):
     
     @staticmethod
     def create(username: str, email: str, password: str) -> None:
-        user = UsersModel(username=username, password=password, email=email)
+        user = UsersModel(username=username, password=generate_password_hash(password), email=email)
         db.session.add(user)
         db.session.commit()
         
@@ -28,4 +29,14 @@ class UsersModel(ModelMyxin, db.Model):
     @staticmethod
     def find_by_username(username: str):
         return UsersModel.query.filter_by(username=username).first()
+    
+    
+    @staticmethod
+    def login(username: str, password) -> bool:
+        user = UsersModel.query.filter_by(username=username).first()
+        return check_password_hash(user.password, password)
+    
+    
+    def __repr__(self):
+        return f'<User {self.username}>'
     
