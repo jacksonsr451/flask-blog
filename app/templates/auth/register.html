@@ -7,6 +7,11 @@
 {% block content %}
     <form class="register_form" action="/auth/register/validate" method="post">
         <div class="items">
+            <div class="top">
+                <a href="/auth/login">
+                    <img src="{{ url_for('static', filename='images/left_arrow.svg') }}" alt="" srcset="">
+                </a>
+            </div>
             <h1>Registrar-se</h1>
             <p>Faça seu cadastro aqui!</p>
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
