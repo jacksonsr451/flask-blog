@@ -1,7 +1,5 @@
-from app.blueprints.web import (
-    home_controller,
-    auth_controller
-)
+from app.blueprints.web import home_controller
+from app.blueprints.web.auth import auth_controller
 
 
 

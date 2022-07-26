@@ -121,6 +121,7 @@ table {
     width: 20px;
     height: 22px;
     margin-left: 1rem;
+    fill: var(--color-secondary);
 }
 
 .content > .login_form > .items > h1,
@@ -212,8 +213,7 @@ table {
     margin: .75rem 0;
 }
 
-.content > .login_form > .items > .register > a,
-.content > .register_form > .items > .register > a {
+.content > .login_form > .items > .register > a {
     color: var(--color-secondary);
     font-size: .6rem;
 }

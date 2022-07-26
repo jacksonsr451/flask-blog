@@ -4,6 +4,7 @@ from flask_login import login_required, login_user, logout_user
 from app.middlewares.csrf_token_middleware import csrf_token_middleware
 from app.ext.flask_login import login_manager
 from app.models.users_model import UsersModel
+from app.models.users_roles_model import UsersRolesModel
 
 
 
@@ -31,6 +32,19 @@ def init_controller(app) -> None:
         return render_template("auth/register.html")
     
     
+    @app.route('/auth/register/validate', methods=["POST"])
+    def register_validate():
+        data =  request.values
+        try:
+            UsersModel.create(username=data["username"], password=data["password"], email=data["email"])
+            user = UsersModel.find_by_username(username=data["username"])
+            UsersRolesModel.create(user_id=user.id, role_id=3)
+            return redirect('/auth/login')
+        except:
+            # TODO: Implementing rollback data
+            return redirect('/auth/register')
+    
+    
     @app.route('/auth/logout', methods=["GET"])
     @login_required
     def logout():
@@ -40,5 +54,5 @@ def init_controller(app) -> None:
     
     @login_manager.user_loader
     def load_user(user_id):
-        return UsersModel.query.get(user_id)
+        return UsersModel.find_user_by_id(user_id=user_id)
     

@@ -41,6 +41,11 @@ class UsersModel(ModelMyxin, db.Model, UserMixin):
         return None
     
     
+    @staticmethod
+    def find_user_by_id(user_id):
+        return UsersModel.query.get(user_id)
+    
+    
     def __repr__(self):
         return f'<User {self.username}>'
     
