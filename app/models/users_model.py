@@ -32,9 +32,11 @@ class UsersModel(ModelMyxin, db.Model):
     
     
     @staticmethod
-    def login(username: str, password) -> bool:
+    def login(username: str, password):
         user = UsersModel.query.filter_by(username=username).first()
-        return check_password_hash(user.password, password)
+        if check_password_hash(user.password, password):
+            return user
+        return None
     
     
     def __repr__(self):
