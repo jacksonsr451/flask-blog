@@ -1,5 +1,4 @@
-from crypt import methods
-from flask import flash, redirect, render_template, abort, request
+from flask import flash, redirect, render_template, request
 from flask_login import login_required, login_user, logout_user
 
 from app.middlewares.csrf_token_middleware import csrf_token_middleware
