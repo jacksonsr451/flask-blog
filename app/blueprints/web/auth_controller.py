@@ -31,6 +31,13 @@ def init_controller(app) -> None:
         return render_template("auth/register.html")
     
     
+    @app.route('/auth/register/validate', methods=["POST"])
+    def register_validate():
+        data =  request.values
+        flash(data)
+        return redirect('/auth/register')
+    
+    
     @app.route('/auth/logout', methods=["GET"])
     @login_required
     def logout():
