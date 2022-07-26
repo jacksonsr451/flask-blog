@@ -54,5 +54,5 @@ def init_controller(app) -> None:
     
     @login_manager.user_loader
     def load_user(user_id):
-        return UsersModel.query.get(user_id)
+        return UsersModel.find_user_by_id(user_id=user_id)
     
