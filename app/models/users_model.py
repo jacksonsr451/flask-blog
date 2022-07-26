@@ -1,11 +1,13 @@
 from typing import Any
+
+from flask_login import UserMixin
 from app.ext.flask_sql_alchemy import db
 from app.models.model_mixin import ModelMyxin 
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
 
-class UsersModel(ModelMyxin, db.Model):
+class UsersModel(ModelMyxin, db.Model, UserMixin):
     __tablename__ = 'users'
     
     username = db.Column(db.String(80), unique=True, nullable=False)
@@ -21,7 +23,7 @@ class UsersModel(ModelMyxin, db.Model):
     
     @staticmethod
     def create(username: str, email: str, password: str) -> None:
-        user = UsersModel(username=username, password=generate_password_hash(password), email=email)
+        user = UsersModel(username=username, password=generate_password_hash(password).__str__(), email=email)
         db.session.add(user)
         db.session.commit()
         
