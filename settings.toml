@@ -13,6 +13,7 @@ EXTENSIONS = [
     "app.ext.flask_migration:init_app",
     "app.ext.commands:init_commands",
     "app.ext.flask_wtf:init_app",
+    "app.ext.flask_login:init_app",
 
     "app.blueprints.web:init_app",
     "app.blueprints.api:init_app"
