@@ -1,9 +1,13 @@
+from array import array
 from typing import Any
 
-from flask_login import UserMixin
+from flask_login import UserMixin, current_user
 from app.ext.flask_sql_alchemy import db
 from app.models.model_mixin import ModelMyxin 
 from werkzeug.security import generate_password_hash, check_password_hash
+from app.models.roles_model import RolesModel
+
+from app.models.users_roles_model import UsersRolesModel
 
 
 
@@ -44,6 +48,19 @@ class UsersModel(ModelMyxin, db.Model, UserMixin):
     @staticmethod
     def find_user_by_id(user_id):
         return UsersModel.query.get(user_id)
+    
+    
+    @staticmethod
+    def roles():
+        roles: list = list()
+        users_roles = UsersRolesModel.query.filter_by(user_id=current_user.id)
+        for role in users_roles:
+            current_role = RolesModel.query.filter_by(id=role.role_id).first()
+            roles.append({
+                "user_id": role.user_id,
+                "role": current_role.role
+            })
+        return roles
     
     
     def __repr__(self):
