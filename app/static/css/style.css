@@ -79,11 +79,56 @@ table {
 	border-spacing: 0;
 }
 
+header {
+    width: 100vw;
+    padding-top: .5rem;
+}
+
+header,
+header > ul {
+    display: flex;
+    height: 2rem;
+
+    align-items: center;
+}
+
+header > a {
+    margin-left: 1rem;
+    justify-self: start;
+    background-color: var(--color-secondary-dark);
+    border-radius: .8rem;
+    padding: .5rem;
+    color: var(--color-white);
+}
+
+header > ul {
+    width: 100%;
+    justify-self: stretch;
+    justify-content: end;
+}
+
+header > ul > li > span {
+    margin-right: 1rem;
+    background-color: var(--color-white);
+    border-radius: .8rem;
+    padding: .5rem;
+    color: var(--color-secondary-dark);    
+}
+
+header > ul > li > a {
+    margin-right: 1rem;
+    background-color: var(--color-secondary-dark);
+    border-radius: .8rem;
+    padding: .5rem;
+    color: var(--color-white);
+}
+
 .content {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 100vh;
+    height: 92vh;
+    margin-top: .5rem;
 }
 
 .content > .login_form,
