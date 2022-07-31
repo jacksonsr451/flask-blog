@@ -1,5 +1,5 @@
 from functools import wraps
-from flask import flash, request, Response
+from flask import flash, redirect, request, Response
 from flask_login import current_user
 
 
@@ -10,7 +10,8 @@ def is_superuser_middleware(func):
         for current_role in current_user.roles():
             if current_role['role'] == "superuser":
                 return func(*args, **kwargs)
-            
-        return Response('Authorization failed', mimetype='text/plain', status=404)
+        
+        flash("Superuser is required by access this route!")
+        return redirect('/auth/login')
     
     return decorated_function
