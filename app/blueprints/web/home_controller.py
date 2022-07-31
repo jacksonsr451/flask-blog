@@ -1,4 +1,5 @@
 from flask import render_template, abort
+from flask_login import login_required
 
 
 def init_controller(app) -> None:
