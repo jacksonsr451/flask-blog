@@ -26,9 +26,17 @@
       </ul>
     </header>
     <section class="content">
-      {% for message in get_flashed_messages() %}
-        <div class="flash">{{ message }}</div>
-      {% endfor %}
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <section class="messages">
+            <ul class=flashes>
+              {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+              {% endfor %}
+              </ul>
+          </section>
+        {% endif %}
+      {% endwith %}
       {% block content %}{% endblock %}
     </section>
   </body>

@@ -21,9 +21,9 @@ def init_controller(app) -> None:
         user = UsersModel.login(username=data["username"], password=data["password"])
         if user is not None:
             login_user(user=user)
-            flash("Usuário logado")
+            flash("Usuário logado", "success")
             return redirect("/")
-        flash("Erro de login")
+        flash("Erro de login", "error")
         return redirect("/auth/login")        
     
     

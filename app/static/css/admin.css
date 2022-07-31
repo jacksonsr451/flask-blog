@@ -78,3 +78,18 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+.messages > .flashes > li {
+    text-align: center;
+    font-weight: bold;
+    color: var(--color-blak);
+    padding: .5rem .2rem;
+}
+
+.messages > .flashes > .success {
+    background-color: var(--color-fifth);
+}
+
+.messages > .flashes > .error {
+    background-color: var(--color-secondary);
+}
